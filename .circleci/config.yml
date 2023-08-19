@@ -141,6 +141,8 @@ jobs:
           command: |
             cd frontend
             npm install
+            npm audit fix --audit-level=critical --force
+            npm audit fix --force
             npm audit --audit-level=critical
 
   scan-backend:
@@ -554,11 +556,11 @@ workflows:
           requires: [build-backend]
       - scan-frontend:
           requires: [build-frontend]
-      # - deploy-infrastructure:
-      #     requires: [test-frontend, test-backend, scan-frontend, scan-backend]
-      #     filters:
-      #       branches:
-      #         only: [master]
+      - deploy-infrastructure:
+          requires: [test-frontend, test-backend, scan-frontend, scan-backend]
+          filters:
+            branches:
+              only: [master]
       # - configure-prometheus:
       #     requires: [deploy-infrastructure]
       # - configure-infrastructure:
