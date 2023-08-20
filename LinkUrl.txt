@@ -1,3 +1,3 @@
 [URL01] https://github.com/SangSungSuong/cdond-c3-projectstarter.git
-[URL02] http://udapeople-0ba1e73.s3-website-us-east-1.amazonaws.com
+[URL02] http://udapeople-5eafbf9.s3-website-us-east-1.amazonaws.com
 [URL02 - cloudfront] https://d2rq5lan9u58w5.cloudfront.net
