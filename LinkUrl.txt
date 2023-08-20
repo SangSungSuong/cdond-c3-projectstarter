@@ -1,3 +1,3 @@
 [URL01] https://github.com/SangSungSuong/cdond-c3-projectstarter.git
-[URL02] 
-[URL02 - cloudfront] 
+[URL02] https://d2rq5lan9u58w5.cloudfront.net/#/employees
+[URL02 - cloudfront] https://d2rq5lan9u58w5.cloudfront.net
