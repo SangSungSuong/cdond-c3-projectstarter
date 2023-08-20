@@ -98,7 +98,7 @@ jobs:
       - checkout
       # Restore from cache
       - restore_cache:
-          keys: [ frontend-build ]
+          keys: [frontend-build]
       # Your job code here
       - run:
           name: Run frontend tests
@@ -116,7 +116,7 @@ jobs:
       - checkout
       # Restore from cache
       - restore_cache:
-          keys: [ backend-build ]
+          keys: [backend-build]
       # Your job code here
       - run:
           name: Run backend tests
@@ -134,7 +134,7 @@ jobs:
       - checkout
       # Restore from cache
       - restore_cache:
-          keys: [ frontend-build ]
+          keys: [frontend-build]
       # Your job code here
       - run:
           name: Scan frontend dependencies
@@ -154,7 +154,7 @@ jobs:
       - checkout
       # Restore from cache
       - restore_cache:
-          keys: [ backend-build ]
+          keys: [backend-build]
       # Your job code here
       - run:
           name: Scan backend dependencies
@@ -228,7 +228,7 @@ jobs:
             apk add --update --no-cache aws-cli
             apk add --update --no-cache curl
       - restore_cache:
-          keys: [ backend-build ]
+          keys: [backend-build]
       - run:
           name: Configure server
           command: |
@@ -264,8 +264,6 @@ jobs:
       - checkout
       - attach_workspace:
           at: ~/
-      - restore_cache:
-          keys: [ backend-build ]
       - run:
           name: Install dependencies
           command: |
@@ -274,6 +272,8 @@ jobs:
             curl "https://awscli.amazonaws.com/awscli-exe-linux-x86_64.zip" -o "awscliv2.zip"
             unzip -qq awscliv2.zip
             sudo ./aws/install
+      - restore_cache:
+          keys: [backend-build]
       - run:
           name: Run migrations
           command: |
@@ -347,7 +347,7 @@ jobs:
       # Checkout code from git
       - checkout
       - restore_cache:
-          keys: [ backend-build ]
+          keys: [backend-build]
       # Add ssh keys with fingerprint
       - add_ssh_keys:
           fingerprints:
@@ -395,7 +395,7 @@ jobs:
       # Checkout code from git
       - checkout
       - restore_cache:
-          keys: [ backend-build ]
+          keys: [backend-build]
       - attach_workspace:
           at: ~/
       - run:
@@ -423,7 +423,7 @@ jobs:
               exit 1
             fi
       - restore_cache:
-          keys: [ frontend-build ]
+          keys: [frontend-build]
       - run:
           name: Frontend smoke test.
           command: |
