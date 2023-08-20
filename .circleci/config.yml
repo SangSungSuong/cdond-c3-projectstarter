@@ -388,7 +388,7 @@ jobs:
   smoke-test:
     docker:
       # Lightweight Docker image
-      - image: circleci/node:13.8.0
+      - image: circleci/node:13.8.0 # safest to use to avoid migration errors
     steps:
       # Checkout code from git
       - checkout
