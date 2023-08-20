@@ -1,0 +1,20 @@
+---
+- name: "Upgrade dependencies" # sudo apt upgrade
+  become: true
+  apt:
+    upgrade: "yes"
+
+- name: "Install dependencies" # sudo apt autoremove
+  become: true
+  apt:
+    name: [ "nodejs", "npm" ]
+    state: latest
+    update_cache: yes
+
+- name: "Install PM2 dependencies" #sudo npm install pm2 -g
+  become: true
+  npm:
+    name: pm2
+    global: yes
+    production: yes
+    state: present
