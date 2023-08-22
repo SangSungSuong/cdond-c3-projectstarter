@@ -12,24 +12,13 @@
 - name: "Install dependencies"
   shell: |
     cd ~/backend-app
-    sudo npm i
-    sudo npm run build
-
-- name: "install pm2"
-  become: true
-  npm:
-    name: pm2
-    global: yes
-    production: yes
-    state: present
+    npm i
 
 - name: "Start backend application with PM2"
   shell: |
     cd ~/backend-app/
-    npm install
-    npm run build
     pm2 stop default
-    pm2 start -f main.js
+    pm2 delete default
     pm2 start npm -- run "start:dev"
   register: execute_node
 
